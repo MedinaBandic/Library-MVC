@@ -1,0 +1,26 @@
+@model Library_MVC.Models.Warning
+
+@* This partial view defines form fields that will appear when creating and editing entities *@
+
+<div class="editor-label">
+    WarningType
+</div>
+<div class="editor-field">
+    @Html.DropDownListFor(model => model.WarningTypeID, ((IEnumerable<Library_MVC.Models.WarningType>)ViewBag.PossibleWarningTypes).Select(option => new SelectListItem {
+        Text = Html.DisplayTextFor(_ => option).ToString(), 
+        Value = option.WarningTypeID.ToString(),
+        Selected = (Model != null) && (option.WarningTypeID == Model.WarningTypeID)
+    }), "Choose...")
+    @Html.ValidationMessageFor(model => model.WarningTypeID)
+</div>
+<div class="editor-label">
+    Member
+</div>
+<div class="editor-field">
+    @Html.DropDownListFor(model => model.MemberID, ((IEnumerable<Library_MVC.Models.Member>)ViewBag.PossibleMembers).Select(option => new SelectListItem {
+        Text = (option == null ? "None" : option.Name), 
+        Value = option.MemberID.ToString(),
+        Selected = (Model != null) && (option.MemberID == Model.MemberID)
+    }), "Choose...")
+    @Html.ValidationMessageFor(model => model.MemberID)
+</div>

@@ -1,0 +1,35 @@
+@model Library_MVC.Models.Member
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>Member</legend>
+
+    <div class="display-label">Name</div>
+    <div class="display-field">@Model.Name</div>
+
+    <div class="display-label">Surname</div>
+    <div class="display-field">@Model.Surname</div>
+
+    <div class="display-label">Email</div>
+    <div class="display-field">@Model.Email</div>
+
+    <div class="display-label">Phone</div>
+    <div class="display-field">@Model.Phone</div>
+
+    <div class="display-label">Department</div>
+    <div class="display-field">@(Model.Department == null ? "None" : Model.Department.Name)</div>
+
+    <div class="display-label">Occupation</div>
+    <div class="display-field">@Model.Occupation</div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.MemberID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
+
+

@@ -1,0 +1,41 @@
+@model Library_MVC.Models.Literature
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>Literature</legend>
+
+    <div class="display-label">Name</div>
+    <div class="display-field">@Model.Name</div>
+
+    <div class="display-label">Author</div>
+    <div class="display-field">@Html.DisplayTextFor(_ => Model.Author).ToString()</div>
+
+    <div class="display-label">Publisher</div>
+    <div class="display-field">@(Model.Publisher == null ? "None" : Model.Publisher.Name)</div>
+
+    <div class="display-label">Language</div>
+    <div class="display-field">@Model.Language</div>
+
+    <div class="display-label">NumberOfCopies</div>
+    <div class="display-field">@Model.NumberOfCopies</div>
+
+    <div class="display-label">Reliability</div>
+    <div class="display-field">@Model.Reliability</div>
+
+    <div class="display-label">TypeID</div>
+    <div class="display-field">@Model.TypeID</div>
+
+    <div class="display-label">LiteratureType</div>
+    <div class="display-field">@(Model.LiteratureType == null ? "None" : Model.LiteratureType.Name)</div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.ISBN }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
+
+

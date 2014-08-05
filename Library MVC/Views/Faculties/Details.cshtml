@@ -1,0 +1,20 @@
+@model Library_MVC.Models.Faculty
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>Faculty</legend>
+
+    <div class="display-label">Name</div>
+    <div class="display-field">@Model.Name</div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.FacultyID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
+
+

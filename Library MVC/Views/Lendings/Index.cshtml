@@ -1,0 +1,65 @@
+@model IEnumerable<Library_MVC.Models.Lending>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table>
+    <tr>
+        <th></th>
+        <th>
+            Member
+        </th>
+        <th>
+            ISBN
+        </th>
+        <th>
+            Literature
+        </th>
+        <th>
+            LendingDate
+        </th>
+        <th>
+            ReturnDate
+        </th>
+        <th>
+            RenewalDate
+        </th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.LendingID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.LendingID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.LendingID })
+        </td>
+        <td>
+			@(item.Member == null ? "None" : item.Member.Name)
+        </td>
+        <td>
+			@item.ISBN
+        </td>
+        <td>
+			@(item.Literature == null ? "None" : item.Literature.Name)
+        </td>
+        <td>
+			@String.Format("{0:g}", item.LendingDate)
+        </td>
+        <td>
+			@String.Format("{0:g}", item.ReturnDate)
+        </td>
+        <td>
+			@String.Format("{0:g}", item.RenewalDate)
+        </td>
+    </tr>
+}
+
+</table>
+
+

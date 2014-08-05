@@ -1,0 +1,77 @@
+@model IEnumerable<Library_MVC.Models.Literature>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table>
+    <tr>
+        <th></th>
+        <th>
+            Name
+        </th>
+        <th>
+            Author
+        </th>
+        <th>
+            Publisher
+        </th>
+        <th>
+            Language
+        </th>
+        <th>
+            NumberOfCopies
+        </th>
+        <th>
+            Reliability
+        </th>
+        <th>
+            TypeID
+        </th>
+        <th>
+            LiteratureType
+        </th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ISBN }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ISBN }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ISBN })
+        </td>
+        <td>
+			@item.Name
+        </td>
+        <td>
+			@Html.DisplayTextFor(_ => item.Author).ToString()
+        </td>
+        <td>
+			@(item.Publisher == null ? "None" : item.Publisher.Name)
+        </td>
+        <td>
+			@item.Language
+        </td>
+        <td>
+			@item.NumberOfCopies
+        </td>
+        <td>
+			@item.Reliability
+        </td>
+        <td>
+			@item.TypeID
+        </td>
+        <td>
+			@(item.LiteratureType == null ? "None" : item.LiteratureType.Name)
+        </td>
+    </tr>
+}
+
+</table>
+
+

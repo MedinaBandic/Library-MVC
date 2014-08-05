@@ -1,0 +1,47 @@
+@model Library_MVC.Models.Lending
+
+@* This partial view defines form fields that will appear when creating and editing entities *@
+
+<div class="editor-label">
+    @Html.LabelFor(model => model.ISBN)
+</div>
+<div class="editor-field">
+    @Html.EditorFor(model => model.ISBN)
+    @Html.ValidationMessageFor(model => model.ISBN)
+</div>
+
+<div class="editor-label">
+    @Html.LabelFor(model => model.LendingDate)
+</div>
+<div class="editor-field">
+    @Html.EditorFor(model => model.LendingDate)
+    @Html.ValidationMessageFor(model => model.LendingDate)
+</div>
+
+<div class="editor-label">
+    @Html.LabelFor(model => model.ReturnDate)
+</div>
+<div class="editor-field">
+    @Html.EditorFor(model => model.ReturnDate)
+    @Html.ValidationMessageFor(model => model.ReturnDate)
+</div>
+
+<div class="editor-label">
+    @Html.LabelFor(model => model.RenewalDate)
+</div>
+<div class="editor-field">
+    @Html.EditorFor(model => model.RenewalDate)
+    @Html.ValidationMessageFor(model => model.RenewalDate)
+</div>
+
+<div class="editor-label">
+    Member
+</div>
+<div class="editor-field">
+    @Html.DropDownListFor(model => model.MemberID, ((IEnumerable<Library_MVC.Models.Member>)ViewBag.PossibleMembers).Select(option => new SelectListItem {
+        Text = (option == null ? "None" : option.Name), 
+        Value = option.MemberID.ToString(),
+        Selected = (Model != null) && (option.MemberID == Model.MemberID)
+    }), "Choose...")
+    @Html.ValidationMessageFor(model => model.MemberID)
+</div>

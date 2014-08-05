@@ -1,0 +1,23 @@
+@model Library_MVC.Models.LiteratureType
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>LiteratureType</legend>
+
+    <div class="display-label">Name</div>
+    <div class="display-field">@Model.Name</div>
+
+    <div class="display-label">Genre</div>
+    <div class="display-field">@Model.Genre</div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.TypeID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
+
+

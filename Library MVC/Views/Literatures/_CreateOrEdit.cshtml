@@ -1,0 +1,66 @@
+@model Library_MVC.Models.Literature
+
+@* This partial view defines form fields that will appear when creating and editing entities *@
+
+<div class="editor-label">
+    @Html.LabelFor(model => model.Name)
+</div>
+<div class="editor-field">
+    @Html.EditorFor(model => model.Name)
+    @Html.ValidationMessageFor(model => model.Name)
+</div>
+
+<div class="editor-label">
+    @Html.LabelFor(model => model.Language)
+</div>
+<div class="editor-field">
+    @Html.EditorFor(model => model.Language)
+    @Html.ValidationMessageFor(model => model.Language)
+</div>
+
+<div class="editor-label">
+    @Html.LabelFor(model => model.NumberOfCopies)
+</div>
+<div class="editor-field">
+    @Html.EditorFor(model => model.NumberOfCopies)
+    @Html.ValidationMessageFor(model => model.NumberOfCopies)
+</div>
+
+<div class="editor-label">
+    @Html.LabelFor(model => model.Reliability)
+</div>
+<div class="editor-field">
+    @Html.EditorFor(model => model.Reliability)
+    @Html.ValidationMessageFor(model => model.Reliability)
+</div>
+
+<div class="editor-label">
+    @Html.LabelFor(model => model.TypeID)
+</div>
+<div class="editor-field">
+    @Html.EditorFor(model => model.TypeID)
+    @Html.ValidationMessageFor(model => model.TypeID)
+</div>
+
+<div class="editor-label">
+    Author
+</div>
+<div class="editor-field">
+    @Html.DropDownListFor(model => model.AuthorID, ((IEnumerable<Library_MVC.Models.Author>)ViewBag.PossibleAuthors).Select(option => new SelectListItem {
+        Text = Html.DisplayTextFor(_ => option).ToString(), 
+        Value = option.AuthorID.ToString(),
+        Selected = (Model != null) && (option.AuthorID == Model.AuthorID)
+    }), "Choose...")
+    @Html.ValidationMessageFor(model => model.AuthorID)
+</div>
+<div class="editor-label">
+    Publisher
+</div>
+<div class="editor-field">
+    @Html.DropDownListFor(model => model.PublisherID, ((IEnumerable<Library_MVC.Models.Publisher>)ViewBag.PossiblePublishers).Select(option => new SelectListItem {
+        Text = (option == null ? "None" : option.Name), 
+        Value = option.PublisherID.ToString(),
+        Selected = (Model != null) && (option.PublisherID == Model.PublisherID)
+    }), "Choose...")
+    @Html.ValidationMessageFor(model => model.PublisherID)
+</div>

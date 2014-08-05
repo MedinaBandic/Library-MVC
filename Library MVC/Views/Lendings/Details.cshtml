@@ -1,0 +1,35 @@
+@model Library_MVC.Models.Lending
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>Lending</legend>
+
+    <div class="display-label">Member</div>
+    <div class="display-field">@(Model.Member == null ? "None" : Model.Member.Name)</div>
+
+    <div class="display-label">ISBN</div>
+    <div class="display-field">@Model.ISBN</div>
+
+    <div class="display-label">Literature</div>
+    <div class="display-field">@(Model.Literature == null ? "None" : Model.Literature.Name)</div>
+
+    <div class="display-label">LendingDate</div>
+    <div class="display-field">@String.Format("{0:g}", Model.LendingDate)</div>
+
+    <div class="display-label">ReturnDate</div>
+    <div class="display-field">@String.Format("{0:g}", Model.ReturnDate)</div>
+
+    <div class="display-label">RenewalDate</div>
+    <div class="display-field">@String.Format("{0:g}", Model.RenewalDate)</div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.LendingID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
+
+

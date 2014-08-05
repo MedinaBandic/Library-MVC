@@ -1,0 +1,23 @@
+@model Library_MVC.Models.Publisher
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>Publisher</legend>
+
+    <div class="display-label">Name</div>
+    <div class="display-field">@Model.Name</div>
+
+    <div class="display-label">Place</div>
+    <div class="display-field">@Model.Place</div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.PublisherID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
+
+

@@ -1,0 +1,41 @@
+@model IEnumerable<Library_MVC.Models.Warning>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table>
+    <tr>
+        <th></th>
+        <th>
+            WarningType
+        </th>
+        <th>
+            Member
+        </th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.WarningID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.WarningID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.WarningID })
+        </td>
+        <td>
+			@Html.DisplayTextFor(_ => item.WarningType).ToString()
+        </td>
+        <td>
+			@(item.Member == null ? "None" : item.Member.Name)
+        </td>
+    </tr>
+}
+
+</table>
+
+

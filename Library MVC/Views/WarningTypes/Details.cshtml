@@ -1,0 +1,23 @@
+@model Library_MVC.Models.WarningType
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>WarningType</legend>
+
+    <div class="display-label">Penalty</div>
+    <div class="display-field">@Model.Penalty</div>
+
+    <div class="display-label">Description</div>
+    <div class="display-field">@Model.Description</div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.WarningTypeID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
+
+
